@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание2_5</title>
+</head>
+<body>
+    <script>
+        let a = parseInt(prompt("Введите целое число a"));
+        let b = parseInt(prompt("Введите целое число b"));
+
+        function sum (a, b) {
+            return a + b;
+        }
+        function sub (a, b) {
+            return a - b;
+        }
+        function mult (a, b) {
+            return a * b;
+        }
+        function div (a, b) {
+            return a / b;
+        }
+
+        alert ("Сумма a + b = " + sum (a,b));
+        alert ("Произведение a * b = " + mult (a,b));
+        alert ("Разность a - b = " + sub (a,b));
+        if (b != 0) {alert ("Результат деления a / b = " + div (a,b));}
+            else {alert("Нельзя делить на 0. Введите другое значение");}
+    </script>
+
+</body>
+</html>
