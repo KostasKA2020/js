@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание2_6</title>
+</head>
+<body>
+    <script>
+        let arg1 = parseInt(prompt("Введите целое число arg1"));
+        let arg2 = parseInt(prompt("Введите целое число arg2"));
+        let operation = prompt("Введите название операции для аргументов (sum, sub, div, mult)");
+
+        function mathOperation(arg1, arg2, operation) {
+            switch(operation){
+                case "sum":
+                    return arg1 + arg2;
+                    break;
+                case "sub":
+                    return arg1 - arg2;
+                    break;
+                case "div":
+                    return arg1 / arg2;
+                    break;
+                case "mult":
+                    return arg1 * arg2;
+                    break;
+                default:
+                    alert("Вы ввели неправильное название операции. Повторите ввод.");
+            }
+        }
+
+        if (operation == "div" && arg2 == 0) {
+            alert ("Нельзя делить на 0. Введите другое значение");
+        }
+        else {
+            alert("Результат операции " + operation + "=" + mathOperation(arg1, arg2, operation));
+        }
+
+    </script>
+</body>
+</html>
