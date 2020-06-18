@@ -6,14 +6,29 @@
 </head>
 <body>
     <script>
-        const power = (val, pow) => {
-            if (pow != 1) {
-                return val * power(val, pow - 1);
-            } else if (pow <= 0) {
-                alert("Введите число большее или равное 1");
-            } else {
+        function  power(val, pow) {
+            if (pow == 1) {
                 return val;
+            } else {
+                return val * power(val, pow - 1);
             }
+        }
+
+        let val = parseInt(prompt("Введите основание степени, целое число val"));
+        let pow = parseInt(prompt("Введите показатель степени, число pow"));
+
+        if (val == 0 && pow > 0) {
+            alert(val + " в степени " + pow + " = 0")
+        } else if (val == 0 && pow <= 0) {
+            alert("Нельзя при основании 0 использовать показатель степени <= 0");
+        }
+        if (pow == 0) {
+            alert(val + " в степени " + pow + " = 1");
+        }
+        if (pow < 0) {
+            alert(val + " в степени " + pow + " = " + 1/power(val, pow*(-1)));
+        } else {
+            alert(val + " в степени " + pow + " = " + power(val, pow));
         }
     </script>
 </body>
