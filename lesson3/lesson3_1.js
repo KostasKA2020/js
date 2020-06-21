@@ -2,8 +2,8 @@ let i = 2; //0 и единица не являются простыми числ
 while (i <= 100) {
     let n = 2;
     while (n <= i) {
-        if (i % n == 0) break;
-        if (i - 1 == n) console.log (i);
+        if (i % n === 0) break;
+        if (i - 1 === n) console.log (i);
         n++;
     }
     i++;
