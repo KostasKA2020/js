@@ -1,5 +1,5 @@
 let arr = [];
-for (let i=1; i < 21; i++) {
-    arr.push("X");
+for (let i=0; i < 20; i++) {
+    arr.push("x");
     console.log(arr.join(""));
 }
