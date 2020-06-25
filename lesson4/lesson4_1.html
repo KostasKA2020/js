@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson4_1</title>
+</head>
+<body>
+<script>
+    function NumToObj(num)
+    {
+        var arrNumber = num.split('');
+        while (arrNumber.length < 3)
+        {
+            arrNumber.unshift(0);
+        }
+        var objNumber = {};
+        if (arrNumber.length > 3)
+        {
+            return null;
+        }
+        else
+        {
+            objNumber['сотни'] = +arrNumber[0];
+            objNumber['десятки'] = +arrNumber[1];
+            objNumber['единицы'] = +arrNumber[2];
+            return objNumber;
+        }
+    }
+    var number = prompt("Input number");
+    var obj = NumToObj(number);
+    if (obj == null)
+    {
+        console.log("Object is null");
+    }
+    else
+    {
+       console.log(NumToObj(number));
+       document.write(objNumber['сотни']);
+    }
+</script>
+</body>
+</html>
