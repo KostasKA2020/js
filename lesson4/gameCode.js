@@ -1,4 +1,5 @@
 var event, ok;
+var step = {};
 
 do {//Выводим первый вопрос
     ok = false;
@@ -10,6 +11,10 @@ do {//Выводим первый вопрос
         ok = isAnswer(works.a0, event);
     }
 } while (!ok);
+if (event == 1) {
+    step.question_1 = works.a1;
+} else step.question_1 = works.a2;
+
 switch (event) {
     case 1: // Первое действие  - если в первом окне ввели 1 то открываем серию окон - окно 2
         do {
@@ -22,6 +27,10 @@ switch (event) {
                 ok = isAnswer(works.b0, event);
             }
         } while (!ok);
+        if (event == 1) {
+            step.question_2 = works.b1;
+        } else step.question_2 = works.b2;
+        // step.question_2 = event;
         switch (event) {
             case 1: // Второе действие, если во 2 окне ввели 1 то переходим на 4 окно
                 do {
@@ -34,7 +43,10 @@ switch (event) {
                         ok = isAnswer(works.d0, event);
                     }
                 } while (!ok);
-
+                if (event == 1) {
+                    step.question_1 = works.d1;
+                } else step.question_1 = works.d2;
+                // step.question_4 = event;
                 break;
             case 2: // Второе действие   Если ввели 2 то также переходим на 4 окно
                 do {
@@ -47,7 +59,10 @@ switch (event) {
                         ok = isAnswer(works.d0, event);
                     }
                 } while (!ok);
-
+                if (event == 1) {
+                    step.question_4 = works.d1;
+                } else step.question_4 = works.d2;
+                // step.question = event;
                 break;
             case -1: // Второе действие
                 break;
@@ -66,6 +81,10 @@ switch (event) {
                 ok = isAnswer(works.c0, event);
             }
         } while (!ok);
+        if (event == 1) {
+            step.question_3 = works.c1;
+        } else step.question_3 = works.c2;
+        // step.question_3 = event;
         switch (event) {
             case 1: // Второе действие
                 do {
@@ -78,7 +97,10 @@ switch (event) {
                         ok = isAnswer(works.d0, event);
                     }
                 } while (!ok);
-
+                if (event == 1) {
+                    step.question_4 = works.d1;
+                } else step.question_4 = works.d2;
+                // step.question_4 = event;
                 break;
             case 2: // Второе действие
                 do {
@@ -91,7 +113,10 @@ switch (event) {
                         ok = isAnswer(works.d0, event);
                     }
                 } while (!ok);
-
+                if (event == 1) {
+                    step.question_4 = works.d1;
+                } else step.question_4 = works.d2;
+                // step.question_4 = event;
                 break;
             case -1: // Второе действие
                 break;
@@ -104,7 +129,9 @@ switch (event) {
     default:
         alert('Ошибка');
 }
+alertObj(step);
 alert('Спасибо за игру');
+
 
 //------------------------------------------
 function isAnswer(q, event) {
@@ -117,5 +144,12 @@ function isAnswer(q, event) {
         return false;
     }
 	return true;
-    
+}
+
+function alertObj(obj) {
+    var str = "Ваши шаги:\n";
+    for(k in obj) {
+        str += k+": "+ obj[k]+"\r\n";
+    }
+    alert(str);
 }
