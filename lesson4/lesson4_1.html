@@ -8,7 +8,7 @@
 <script>
     function NumToObj(num)
     {
-        var arrNumber = num.split('');
+        var arrNumber = num.split("");
         while (arrNumber.length < 3)
         {
             arrNumber.unshift(0);
@@ -20,22 +20,23 @@
         }
         else
         {
-            objNumber['сотни'] = +arrNumber[0];
-            objNumber['десятки'] = +arrNumber[1];
-            objNumber['единицы'] = +arrNumber[2];
+            objNumber["сотни"] = +arrNumber[0];
+            objNumber["десятки"] = +arrNumber[1];
+            objNumber["единицы"] = +arrNumber[2];
             return objNumber;
         }
     }
-    var number = prompt("Input number");
+    var number = prompt("Введите число из трёх знаков");
     var obj = NumToObj(number);
     if (obj == null)
     {
-        console.log("Object is null");
+        console.log("Вы ввели более трёх знаков");
+        document.write("Вы ввели более трёх знаков");
     }
     else
     {
        console.log(obj);
-       document.write("сотни - " + obj.сотни, "десятки - " + obj.десятки, "единицы - " + obj.единицы);
+       document.write("сотни: " + obj.сотни, " десятки: " + obj.десятки, " единицы: " + obj.единицы);
     }
 </script>
 </body>
