@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание4_3</title>
+</head>
+<body>
+<script>
+    questions = [
+        q1 = {
+            qtext1: "Вопрос 1",
+            a1: "Ответ 1",
+            a2: "Ответ 2",
+            a3: "Ответ 3",
+            a4: "Ответ 4",
+            correct: 1
+        },
+        q2 = {
+            qtext2: "Вопрос 2",
+            b1: "Ответ 1",
+            b2: "Ответ 2",
+            b3: "Ответ 3",
+            b4: "Ответ 4",
+            correct: 2
+        },
+        q3 = {
+            qtext3: "Вопрос 3",
+            c1: "Ответ 1",
+            c2: "Ответ 2",
+            c3: "Ответ 3",
+            c4: "Ответ 4",
+            correct: 3
+        },
+        q4 = {
+            qtext4: "Вопрос 1",
+            d1: "Ответ 1",
+            d2: "Ответ 2",
+            d3: "Ответ 3",
+            d4: "Ответ 4",
+            correct: 4
+        }
+    ]
+
+    var quest, index, len;
+    for (index = 0, len = questions.length; index < len; ++index) {
+        quest = prompt()
+    }
+
+    //------------------------------------------
+    function isAnswer(q, event) {
+        if (Number.isNaN(event) || !Number.isFinite(event)) {
+            alert('Вы ввели недопустимый символ');
+            return false;
+        }
+        else if (event < 1 || event > q) {
+            alert('Ваше число выходит из допустимого диапозона');
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>
