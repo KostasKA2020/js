@@ -8,43 +8,63 @@
 <script>
     questions = [
         q1 = {
-            qtext1: "Вопрос 1",
+            qtext: "Вопрос 1",
             a1: "Ответ 1",
             a2: "Ответ 2",
             a3: "Ответ 3",
             a4: "Ответ 4",
-            correct: 1
+            correct: 1,
+            cost: 100
         },
         q2 = {
-            qtext2: "Вопрос 2",
+            qtext: "Вопрос 2",
             b1: "Ответ 1",
             b2: "Ответ 2",
             b3: "Ответ 3",
             b4: "Ответ 4",
-            correct: 2
+            correct: 2,
+            cost: 1000
         },
         q3 = {
-            qtext3: "Вопрос 3",
+            qtext: "Вопрос 3",
             c1: "Ответ 1",
             c2: "Ответ 2",
             c3: "Ответ 3",
             c4: "Ответ 4",
-            correct: 3
+            correct: 3,
+            cost: 10000
         },
         q4 = {
-            qtext4: "Вопрос 1",
+            qtext: "Вопрос 4",
             d1: "Ответ 1",
             d2: "Ответ 2",
             d3: "Ответ 3",
             d4: "Ответ 4",
-            correct: 4
+            correct: 4,
+            cost: 100000
         }
     ]
 
     var quest, index, len;
+    var sum = 0;
     for (index = 0, len = questions.length; index < len; ++index) {
-        quest = prompt()
+        do {
+            ok = false;
+            quest = +prompt(strObj(questions[index]));
+            if (quest == -1) {
+                exit(breakGame);
+                break;
+            }
+            else {
+                ok = isAnswer(len, quest);
+            }
+        }  while (!ok);
+        if (quest ==  questions[index].correct) {
+            alert("Поздравляем! Вы угадали!");
+        } else exit(false);
+        sum += questions[index].cost;
     }
+    alert("Поздравляем, Вы выиграли: " + sum + "руб.")
 
     //------------------------------------------
     function isAnswer(q, event) {
@@ -57,6 +77,23 @@
             return false;
         }
         return true;
+    }
+
+    function strObj(obj) {
+        var str = "Введите ответ:\n";
+        for(k in obj) {
+            if (k == "correct" || k == "cost") {
+                continue;
+            } else {
+                str += obj[k]+"\r\n";
+            }
+        }
+        return str;
+    }
+
+    function exit(y) {
+        if (y == false) {alert("Вы проиграли")};
+        if (y == breakGame) {alert("Вы покинули игру")};
     }
 </script>
 </body>
