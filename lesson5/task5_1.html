@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task5_1</title>
+</head>
+<body>
+<script>
+    document.write("<table border='1' width='600' height='600'>");
+    for(var i=1; i<=8; i++)
+    {
+        document.write("<tr>");
+        for(var j=1; j<=8; j++)
+        {
+            if((i+j)%2!=0)
+            {
+                document.write("<td bgcolor='white'></td>");
+            }
+            else
+            {
+                document.write("<td bgcolor='black'></td>");
+            }
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+div {
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+.first {
+    clear: left;
+}
+.black {
+    background: black;
+}
+.white {
+    background: red;
+}
