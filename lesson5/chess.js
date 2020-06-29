@@ -1,14 +1,38 @@
-var i, j, clas;
-for (i = 0; i < 8; i++) {
-    for (j = 0; j < 8; j++) {
-        clas = '';
+function boardChess(){
+    let mainBlock = document.querySelector('.main-block');
+    let block;
+    let flag = true;
+    let figure = {
+        0 : ['&#9820;', '&#9822;', '&#9821;', '&#9819;', '&#9818;','&#9821;', '&#9822;','&#9820;'],
+        1 : ['&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;','&#9823;', '&#9823;','&#9823;'],
+        6 : ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;','&#9817;', '&#9817;','&#9817;'],
+        7 : ['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;','&#9815;', '&#9816;','&#9814;'],
+    };
 
-        if (j === 0) clas = 'first ';
-        else if (j === 7) clas = 'last ';
-        clas += (i % 2 == j % 2) ? 'white' : 'black';
+    for (let i = 0; i<8; i++){
+        for (let j = 0; j<8; j++){
+            if (j==0) flag = !flag;
 
-        var field = document.createElement('div');
-        field.className = clas;
-        document.body.appendChild(field);
+            block = document.createElement('div');
+
+            if (flag) block.className = 'block black';
+            else block.className = 'block white';
+
+            if (figure[i]!==undefined && figure[i][j]!==undefined){
+                block.innerHTML = figure[i][j];
+                if (flag) block.className = 'block black figure';
+                else block.className = 'block white figure';
+                // block.className = 'block figure';
+                // block.style.fontFamily = 'Arial';
+                // block.style.fontSize = '60px';
+                // block.style.textAlign = 'center';
+                // block.style.lineHeight = '75px';
+            }
+
+            mainBlock.appendChild(block);
+            flag = !flag;
+        }
     }
 }
+
+boardChess();

@@ -1,5 +1,5 @@
 .main-block {
-     : 560px;
+    width: 560px;
     height: 560px;
     margin: 30px auto;
     border: 1px solid black;
@@ -14,4 +14,11 @@
 }
 .white {
     background: #fff;
+}
+
+.figure {
+    font-family: Arial, sans-serif;
+    font-size: 60px;
+    text-align: center;
+    line-height: 75px;
 }
