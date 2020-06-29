@@ -49,7 +49,4 @@ function boardChess(){
     }
 }
 
-// let main_border = document.createElement('div');
-// main_border.className = 'border';
-// document.body.append(main_border);
 boardChess();
