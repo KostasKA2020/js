@@ -1,19 +1,16 @@
-.border {
-    width: 800px;
-    height: 800px;
-    margin: 50px auto;
-    border: 5px double black;
-}
 .chess-block {
-    width: 560px;
-    height: 560px;
-    margin: 0 auto;
-    border: 1px solid black;
+    width: 630px;
+    height: 630px;
+    margin: 50px auto;
+    line-height: 630px;
+    border: 5px double black;
 }
 .block {
     width: 70px;
     height: 70px;
     float: left;
+    outline: 1px solid #ccc;
+    /*border: 1px solid #cccccc;*/
 }
 .black {
     background: #ccc;
@@ -27,4 +24,21 @@
     font-size: 60px;
     text-align: center;
     line-height: 75px;
+}
+.border-text {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    line-height: 35px;
+    outline: none;
+}
+.letters {
+    height: 35px;
+}
+.numbers {
+    width: 35px;
+    line-height: 70px;
+}
+.rotate {
+    transform: rotate(180deg);
 }
