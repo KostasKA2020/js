@@ -1,5 +1,7 @@
 function boardChess(){
-    let mainBlock = document.querySelector('.main-block');
+    let chessBlock = document.createElement('div');
+        chessBlock.className = 'chess-block';
+        main_border.append(chessBlock);
     let block;
     let flag = true;
     let figure = {
@@ -29,10 +31,13 @@ function boardChess(){
                 // block.style.lineHeight = '75px';
             }
 
-            mainBlock.appendChild(block);
+            chessBlock.appendChild(block);
             flag = !flag;
         }
     }
 }
 
+let main_border = document.createElement('div');
+main_border.className = 'border';
+document.body.append(main_border);
 boardChess();
