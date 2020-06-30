@@ -2,7 +2,6 @@ function boardChess(){
     let chessBlock = document.createElement('div');
         chessBlock.className = 'chess-block';
         document.body.append(chessBlock);
-        // main_border.append(chessBlock);
     let block;
     let flag = true;
     let figure = {
@@ -20,7 +19,7 @@ function boardChess(){
 
     for (let i = 0; i<10; i++){
         for (let j = 0; j<10; j++){
-            if (j==0) flag = !flag;
+            if (j===0) flag = !flag;
 
             block = document.createElement('div');
 
@@ -29,21 +28,21 @@ function boardChess(){
 
             if (figure[i]!==undefined && figure[i][j]!==undefined){
                 block.innerHTML = figure[i][j];
-                if ((i==0 && j==0) || (i==0 && j==9) || (i==9 && j==0) || (i==9 && j==9)) {
+                if ((i===0 && j===0) || (i===0 && j===9) || (i===9 && j===0) || (i===9 && j===9)) {
                     block.className = 'block border-text numbers letters';
-                } else if (i==0 || i==9) {
-                    if (i==0) block.className = 'block border-text letters rotate';
+                } else if (i===0 || i===9) {
+                    if (i===0) block.className = 'block border-text letters rotate';
                     else block.className = 'block border-text letters';
-                } else if (j==0 || j==9) {
-                    if (j==9) block.className = 'block border-text numbers rotate';
+                } else if (j===0 || j===9) {
+                    if (j===9) block.className = 'block border-text numbers rotate';
                     else block.className = 'block border-text numbers';
                 } else {
                     if (flag) {
-                        if (i==1 || i==2) block.className = 'block black figure rotate';
+                        if (i===1 || i===2) block.className = 'block black figure rotate';
                         else block.className = 'block black figure';
                     }
                     else {
-                        if (i==1 || i==2) block.className = 'block white figure rotate';
+                        if (i===1 || i===2) block.className = 'block white figure rotate';
                         else block.className = 'block white figure';
                     }
                 }
