@@ -38,8 +38,14 @@ function boardChess(){
                     if (j==9) block.className = 'block border-text numbers rotate';
                     else block.className = 'block border-text numbers';
                 } else {
-                    if (flag) block.className = 'block black figure';
-                    else block.className = 'block white figure';
+                    if (flag) {
+                        if (i==1 || i==2) block.className = 'block black figure rotate';
+                        else block.className = 'block black figure';
+                    }
+                    else {
+                        if (i==1 || i==2) block.className = 'block white figure rotate';
+                        else block.className = 'block white figure';
+                    }
                 }
             }
 
