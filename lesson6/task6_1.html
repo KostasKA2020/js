@@ -6,11 +6,19 @@
 </head>
 <body>
 <script>
+    function err() {
+        alert("Файл не найден");
+        var img_err = this;
+    }
     function f(id) {
         var x = id.split("");
         var id_el = "g"+x[1];
         del();
-        document.getElementById(id_el).style.display = "block";
+        var elem = document.getElementById(id_el);
+        // elem.addEventListener("onerror", console.log("error"));
+        console.log (elem.innerHTM);
+        elem.innerHTML = "<img src="xerox.jpg" id="g3" onerror = err()>";
+        elem.style.display = "block";
     }
     function del() {
         var y = document.querySelectorAll('img:nth-of-type(-n+3)');
@@ -18,15 +26,13 @@
             y[i].style.display = "none";
         }
     }
-    function err() {
-        alert("Файл не найден");
-    }
+
 </script>
 
 
     <img src="hp.jpg" id="g1" style = "display: none;">
     <img src="samsung.jpg" id="g2" style = "display: none;">
-    <img src="" id="g3" style = "display: none;" onerror="err()">
+    <img src="xerox1.jpg" id="g3" style = "display: none;">
 
     <img src="hp_small.jpg" id="f1" onclick="f(this.id)">
     <img src="samsung_small.jpg" id="f2" onclick="f(this.id)">
