@@ -32,8 +32,9 @@ let addFunction = id => {
 let addSum = id => {
     sum += cart[id].price;
     let section = document.querySelector(".cart");
-    let content = document.getElementById("sum-id");
-    if (content == null) {
+    let content = document.getElementById('sum-id');
+    console.log (content);
+    if (content === null) {
         let summa = document.createElement("div");
         summa.id = "sum-id;"
         summa.innerHTML = "Сумма покупок: " + sum;
