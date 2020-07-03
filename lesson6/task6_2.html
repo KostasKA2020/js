@@ -68,8 +68,6 @@
         let section = document.querySelector(".products");
         for (let key1 in cart) {
             let cartArt = cart[key1];
-            // console.log(cartArt.name);
-            // console.log(cartArt.imgSrc);
             let element = document.createElement("div");
             let img1 = document.createElement("img");
             img1.setAttribute("src", cartArt.imgSrc);
@@ -81,6 +79,8 @@
             section.append(price);
             let button = document.createElement("button");
             button.innerHTML = "Купить";
+            button.classList.add("add");
+            button.setAttribute("data-id", key1);
             section.append(button);
         }
 
