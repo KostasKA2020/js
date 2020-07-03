@@ -24,7 +24,7 @@
     <section class="cart">
         <h1>Корзина</h1>
     </section>
-    <section>
+    <section class="products">
         <h1>Товары</h1>
         <div class="product">
             <img src="img/hp_small.jpg" alt="hp">
@@ -49,17 +49,40 @@
         let cart = {
             'art1': {
                 name: "Картридж для принтера HP",
+                imgSrc: "img/hp_small.jpg",
                 price: 1000
             },
             'art2': {
                 name: "Картридж для принтера Samsung",
+                imgSrc: "img/samsung_small.jpg",
                 price: 2000
             },
             'art3': {
                 name: "Картридж для принтера Xerox",
+                imgSrc: "img/xerox_small.jpg",
                 price: 3000
             },
         };
+
+        //Создание и размещение карточки товара
+        let section = document.querySelector(".products");
+        for (let key1 in cart) {
+            let cartArt = cart[key1];
+            // console.log(cartArt.name);
+            // console.log(cartArt.imgSrc);
+            let element = document.createElement("div");
+            let img1 = document.createElement("img");
+            img1.setAttribute("src", cartArt.imgSrc);
+            section.append(img1);
+            element.innerHTML = cartArt.name;
+            section.append(element);
+            let price = document.createElement("p");
+            price.innerHTML = "Цена: " + cartArt.price + "руб.";
+            section.append(price);
+            let button = document.createElement("button");
+            button.innerHTML = "Купить";
+            section.append(button);
+        }
 
         var sum = 0;
         document.onclick = event => {
@@ -84,7 +107,7 @@
             sum += cart[id].price;
             let section = document.querySelector(".cart");
             let content = document.getElementById('sum-id');
-            console.log (content);
+            // console.log (content);
             if (content == null) {
                 let summa = document.createElement("div");
                 summa.id = "sum-id"
@@ -92,8 +115,6 @@
                 section.append(summa);
             } else content.innerHTML = "Сумма покупок: " + sum + "руб.";
         }
-
-
 
     </script>
 </body>
