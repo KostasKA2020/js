@@ -3,33 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>Task6_2_basket</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <style>
+        .cart {
+            max-width: 340px;
+            border: 1px solid #ccc;
+        }
+
+        .product {
+            max-width: 300px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+        }
+    </style>
+
     <section class="cart">
         <h1>Корзина</h1>
     </section>
     <section>
         <h1>Товары</h1>
         <div class="product">
-            <img src="hp_small.jpg" alt="hp">
+            <img src="img/hp_small.jpg" alt="hp">
             <p>Картридж для принтера HP</p>
             <p>Цена: 1000руб.</p>
             <button class="add" data-id="art1">Купить</button>
         </div>
         <div class="product">
-            <img src="samsung_small.jpg" alt="hp">
+            <img src="img/samsung_small.jpg" alt="hp">
             <p>Картридж для принтера Samsung</p>
             <p>Цена: 2000руб.</p>
             <button class="add" data-id="art2">Купить</button>
         </div>
         <div class="product">
-            <img src="xerox_small.jpg" alt="hp">
+            <img src="img/xerox_small.jpg" alt="hp">
             <p>Картридж для принтера Xerox</p>
             <p>Цена: 3000руб.</p>
             <button class="add" data-id="art3">Купить</button>
         </div>
     </section>
-    <script src="basket.js"></script>
+    <script>
+        let cart = {
+            'art1': {
+                name: "Картридж для принтера HP",
+                price: 1000
+            },
+            'art2': {
+                name: "Картридж для принтера Samsung",
+                price: 2000
+            },
+            'art3': {
+                name: "Картридж для принтера Xerox",
+                price: 3000
+            },
+        };
+
+        var sum = 0;
+        document.onclick = event => {
+            console.log(event.target.classList);
+            if (event.target.classList.contains("add")) {
+                addFunction(event.target.dataset.id);
+                addSum(event.target.dataset.id);
+            }
+        }
+        //Добавляем товары
+        let addFunction = id => {
+            cart[id];
+            let section = document.querySelector(".cart");
+            let element = document.createElement("div");
+            let summa = document.getElementById('sum-id');
+            element.innerHTML = cart[id].name + " - " + cart[id].price + "руб.";
+            section.insertBefore(element, summa);//вставляем товар перед Суммой
+        }
+
+        //Добавляем, изменяем и вычисляем Сумму
+        let addSum = id => {
+            sum += cart[id].price;
+            let section = document.querySelector(".cart");
+            let content = document.getElementById('sum-id');
+            console.log (content);
+            if (content == null) {
+                let summa = document.createElement("div");
+                summa.id = "sum-id"
+                summa.innerHTML = "Сумма покупок: " + sum + "руб.";
+                section.append(summa);
+            } else content.innerHTML = "Сумма покупок: " + sum + "руб.";
+        }
+
+
+
+    </script>
 </body>
 </html>

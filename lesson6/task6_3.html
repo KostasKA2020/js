@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <title>Task6_3</title>
 </head>
+
+<style>
+    #gallery{
+        width: 640px;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    #gallery .photo img{
+        width: 100%;
+        display: none;
+    }
+
+    #gallery .photo img:first-child{
+        display: block;
+    }
+
+    .buttons {
+        margin-top: 20px;
+    }
+</style>
+
 <body>
-    <img class="small" src="hp_small.jpg" id="f1">
-    <img class="small" src="samsung_small.jpg" id="f2">
-    <img class="small" src="xerox_small.jpg" id="f3">
+    <div id="gallery">
+        <div class="photo">
+            <img src="img/big1.jpg" height="500">
+            <img src="img/big2.jpg" height="500">
+            <img src="img/big4.jpg" height="500">
+        </div>
+
+        <div class="buttons">
+            <button class="prev">Назад</button>
+            <button class="next">Вперед</button>
+        </div>
+    </div>
+
+    <script>
+        let btn_prev = document.querySelector('#gallery .buttons .prev');
+        let btn_next = document.querySelector('#gallery .buttons .next');
+        let images = document.querySelectorAll('#gallery .photo img');
+        let i = 0;
+
+        btn_prev.onclick = function(){
+            images[i].style.display = 'none';
+            i = i - 1;
+            if(i < 0){
+                i = images.length - 1;
+            }
+            images[i].style.display = 'block';
+        }
+        btn_next.onclick = function(){
+            images[i].style.display = 'none';
+            i = i + 1;
+            if(i >= images.length){
+                i = 0;
+            }
+            images[i].style.display = 'block';
+        }
+    </script>
 </body>
 </html>
