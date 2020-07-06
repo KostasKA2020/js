@@ -103,9 +103,11 @@ function move() {
 
     // Определяем новую точку
     if (direction == 'x-') {
+        if ((coord_x - 1) < 0) coord_x = "20";
         new_unit = document.getElementsByClassName('cell-' + (coord_y) + '-' + (coord_x - 1))[0];
     }
     else if (direction == 'x+') {
+        if ((coord_x + 1) >19) coord_x = "1";
         new_unit = document.getElementsByClassName('cell-' + (coord_y) + '-' + (coord_x + 1))[0];
     }
     else if (direction == 'y+') {
@@ -119,7 +121,7 @@ function move() {
     // 1) new_unit не часть змейки
     // 2) Змейка не ушла за границу поля
     //console.log(new_unit);
-    if (!isSnakeUnit(new_unit) && new_unit !== undefined) {
+    if (!isSnakeUnit(new_unit)) {
         // Добавление новой части змейки
         new_unit.setAttribute('class', new_unit.getAttribute('class') + ' snake-unit');
         snake.push(new_unit);
@@ -134,7 +136,7 @@ function move() {
             // удаляем хвост
             removed.setAttribute('class', classes[0] + ' ' + classes[1]);
         }
-
+        // Проверка на препятствие
 	   if (haveBarrier(new_unit)) {
            finishTheGame();
        }
