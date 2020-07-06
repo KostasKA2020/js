@@ -60,7 +60,7 @@ function startGame() {
     respawn();//создали змейку
 
     snake_timer = setInterval(move, SNAKE_SPEED);//каждые 200мс запускаем функцию move
-    barrier_timer = setInterval(createBarrier, 1000);
+    barrier_timer = setInterval(createBarrier, 10000);
     setTimeout(createFood, 5000);
 
 }
@@ -103,17 +103,19 @@ function move() {
 
     // Определяем новую точку
     if (direction == 'x-') {
-        if ((coord_x - 1) < 0) coord_x = "20";
+        if (coord_x < 1) coord_x = 20;
         new_unit = document.getElementsByClassName('cell-' + (coord_y) + '-' + (coord_x - 1))[0];
     }
     else if (direction == 'x+') {
-        if ((coord_x + 1) >19) coord_x = "1";
+        if (coord_x > 18) coord_x = -1;
         new_unit = document.getElementsByClassName('cell-' + (coord_y) + '-' + (coord_x + 1))[0];
     }
     else if (direction == 'y+') {
+        if (coord_y < 1) coord_y = 20;
         new_unit = document.getElementsByClassName('cell-' + (coord_y - 1) + '-' + (coord_x))[0];
     }
     else if (direction == 'y-') {
+        if (coord_y > 18) coord_y = -1;
         new_unit = document.getElementsByClassName('cell-' + (coord_y + 1) + '-' + (coord_x))[0];
     }
 
